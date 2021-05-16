@@ -9,13 +9,20 @@ l2 = []
 d1 = dict()
 d2=dict()
 def search_1(a, b, c):
+    '''
+
+    :param a: movie name
+    :param b: empty list for future use
+    :param c: empty dict for future use
+    :return:
+    '''
     browser = Chrome(options=opts)
     browser.get('https://duckduckgo.com')
     search_form = browser.find_element_by_id('search_form_input_homepage')
     search_form.send_keys(a + ' кинопоиск')
     search_form.submit()
-    search_form = browser.find_element_by_id('r1-0').click()
-    search_form = browser.find_element_by_class_name('styles_link__21QPj').click()
+    browser.find_element_by_id('r1-0').click()
+    browser.find_element_by_class_name('styles_link__21QPj').click()
     results = browser.find_elements_by_class_name('gray')
 
     for r in results:
@@ -32,6 +39,7 @@ def search_1(a, b, c):
     c[a] = b
     return c
 
+
 def choice1(res1, res2, name1, name2):
     s = []
     for i in res1[name1]:
@@ -46,6 +54,7 @@ def choice1(res1, res2, name1, name2):
             s.append(i)
     return(s)
 
+
 def choice2(res1, res2, name1, name2):
     s = []
     for i in res2[name2]:
@@ -55,6 +64,7 @@ def choice2(res1, res2, name1, name2):
             continue
     return s
 
+
 def choice3(res1, res2, name1, name2):
     s = []
     for i in res1[name1]:
@@ -63,6 +73,7 @@ def choice3(res1, res2, name1, name2):
         else:
             s.append(i)
     return s
+
 
 def choice4(res1, res2, name1, name2, act1, act2):
     s1 = []
@@ -92,6 +103,7 @@ def choice4(res1, res2, name1, name2, act1, act2):
         return name1
     else:
         return name2
+
 
 def choice5(res1, res2, name1, name2, act1, act2):
     s1 = []
